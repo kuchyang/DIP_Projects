@@ -1,4 +1,4 @@
-# DIP_Projects
+# Digital Image Processing_Projects
 Digital Image Processing 
 
 + [Python 官方網站](https://www.python.org/)
