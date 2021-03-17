@@ -9,6 +9,6 @@ print( "Number of Rows =", nr )  #行數
 print( "Number of Columns =", nc)  #列數
 
 if img.ndim != 3:
-  print("Gray-Level Image") 
+    print("Gray-Level Image") 
 else: 
-  print("Color Image")
+    print("Color Image")
