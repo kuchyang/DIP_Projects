@@ -14,7 +14,7 @@ def onMouse( event, x, y, flags, param ):
 
 filename = input( "Please enter filename:" )
 img = cv2.imread( filename,-1 )
-cv2.namedWindow( filename )
+cv2.namedWindow( filename )  #建新視窗
 cv2.setMouseCallback( filename, onMouse )  #回呼(Callback)函式:滑鼠觸發事件(event),呼叫副函式(onMouse)
-cv2.imshow( filename,img )
+cv2.imshow( filename,img )  #顯示圖像
 cv2.waitKey(0)
