@@ -3,11 +3,18 @@ import cv2
 
 def image_formation_model( f, x0, y0, sigma ):
     g = f.copy()
-    nr, nc = f.shape[:2]  #獲取圖像大小
+    nr,nc = f.shape[:2]  #獲取圖像大小
     illumination = np.zeros( [nr,nc], dtype='fioat32' )
-    
+    for x in rangr(nr):
+        for y in rangr(nc):
+            illumination[x,y] = np.exp( -( (x-x0)**2 + (y-y0)**2 ) / (2*sigma*sigma) )
+    for x in rangr(nr):
+        for y in rangr(nc):
+            for k in rangr(3):
+                val = round( illumination[x,y] * f[x,y,k] )
+                g[x,y,k] = np.uint8( val )
     return g
-  
+
 def main():
     filename = input("Enter filename: ")  #輸入文件名
     img = cv2.imread( filename, -1 )   #讀取圖像
