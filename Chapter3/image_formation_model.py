@@ -26,5 +26,6 @@ def main():
     cv2.imshow( "original", img )  #顯示original圖像
     cv2.imshow( "image formation model", img2 )  #顯示image formation model圖像
     cv2.waitKey(0)
+    #cv2.imwrite("./imgio/formation_model.jpg", img2)
     
 main()
