@@ -14,6 +14,7 @@ def main():
     filename = input("Enter filename: ")  #輸入文件名
     img1 = cv2.imread( filename, -1 )   #讀取圖像
     img2 = image_downsampling( img1, 2 ) #採樣率 2
+    #img2 = cv2.pyrDown( img1 )
     cv2.imshow( "original", img1 )  #顯示original圖像
     cv2.imshow( "downsampling", img2 )  #顯示image formation model圖像
     cv2.waitKey(0)
