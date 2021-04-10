@@ -6,6 +6,11 @@ def image_scale( Degree, nr,nc):
     scale = np.sin(Rad) #scale=0.7071067811865476
     print(scale)
     Deg1=Degree%90
+    if Deg1 > 45:
+        
+        
+    elif Deg1 < 45:
+        
     return scale
 
 def main():
