@@ -4,14 +4,15 @@ import cv2
 def image_scale( Degree, nr,nc):
     Rad = 45 * np.pi / 180
     scale = np.sin(Rad) #scale=0.7071067811865476
-    print(scale)
+    #print(scale)
     Deg1=Degree%90
     if Deg1 > 45:
-        
-        
+        size = scale+(1-scale)*(Deg1-45)/45
     elif Deg1 < 45:
-        
-    return scale
+        size = scale-(scale-1)*(Deg1)/45
+    else :
+        size = scale
+    return size
 
 def main():
     filename = input("Enter filename: ")  #輸入文件名
