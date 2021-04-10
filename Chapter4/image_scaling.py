@@ -8,7 +8,7 @@ nr,nc = img1.shape[:2]
 scale = eval( input("Enter scale: ") )
 nr2=int(nr*scale)
 nc2=int(nc*scale)
-img2 = cv2.resize( img1, (nr2,nc2), interpolation=cv2.INTER_LINEAR) #
+img2 = cv2.resize( img1, (nr2,nc2), interpolation=cv2.INTER_LINEAR ) #
 
 cv2.imshow( "original", img1 )  #顯示original圖像
 cv2.imshow( "scaling", img2 )  #顯示scaling圖像
