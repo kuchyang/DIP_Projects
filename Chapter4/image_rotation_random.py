@@ -1,8 +1,9 @@
 import numpy as np
 import cv2
 
-def image_scale( Rotation, nr,nc):
+def image_scale( Degree, nr,nc):
     scale=0.7
+    Radian = Degree * np.pi / 180
 
     return scale
 
@@ -11,9 +12,9 @@ def main():
     img1 = cv2.imread(filename, -1 )   #讀取圖像lena.bmp
     nr2,nc2 = img1.shape[:2]
     Rotation = eval( input("Enter Rotation: ") )
-    scale = image_scale( Rotation, nr2,nc2) #0.7
+    Scale = image_scale( Rotation, nr2,nc2) #0.7
 
-    rotation_matrix = cv2.getRotationMatrix2D( (nr2/2, nc2/2), Rotation, scale )
+    rotation_matrix = cv2.getRotationMatrix2D( (nr2/2, nc2/2), Rotation, Scale )
     img2 = cv2.warpAffine( img1, rotation_matrix, (nr2, nc2) )
 
     cv2.imshow( "original", img1 )  #顯示original圖像
