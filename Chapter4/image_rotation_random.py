@@ -2,9 +2,10 @@ import numpy as np
 import cv2
 
 def image_scale( Degree, nr,nc):
-    scale=0.7
+    #scale=0.7
     Radian = Degree * np.pi / 180
-
+    scale = np.sin(Radian)
+    print(scale)
     return scale
 
 def main():
