@@ -2,21 +2,33 @@ import numpy as np
 import cv2
 
 def image_scale( Degree, nr,nc):
-    Rad = 45 * np.pi / 180
-    scale = np.sin(Rad) #scale=0.7071067811865476
-    #print(scale)
+    Rad = Degree * np.pi / 180
+    scale = np.sin(Rad) 
+    scale45=np.sin(45 * np.pi / 180)
+    print(scale)
     Deg1=Degree%90
-    if Deg1 > 45:
-        size = scale+(1-scale)*(Deg1-45)/45
+    if Deg1 == 0:
+        size = 1
+    elif Deg1 > 45:
+        p=pow(np.sin(Rad),2)+pow(np.cos(Rad),2)
+        np.sqrt(p)
+        size =  scale45+(1-scale)*(Deg1-45)/45
+        
     elif Deg1 < 45:
-        size = scale-(scale-1)*(Deg1)/45
+        p=pow(np.sin(Rad),4) + pow(np.cos(Rad),4)
+        print(np.sin(Rad))
+        print(np.cos(Rad))
+        np.sqrt(p)
+        size = np.sqrt(p)#1-(1-scale45)*(Deg1)/45
+        print(size)
+        
     else :
         size = scale
     return size
 
 def main():
-    filename = input("Enter filename: ")  #輸入文件名
-    img1 = cv2.imread(filename, -1 )   #讀取圖像lena.bmp
+    #filename = input("Enter filename: ")  #輸入文件名
+    img1 = cv2.imread("lena.bmp", -1 )   #讀取圖像lena.bmp
     nr2,nc2 = img1.shape[:2]
     Rotation = eval( input("Enter Rotation: ") )
     Scale = image_scale( Rotation, nr2,nc2) #0.7
